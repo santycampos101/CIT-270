@@ -1,9 +1,11 @@
+const https = require('https')
+const fs = require('fs')
+
 // to run: "npm run dev"
 const express = require('express');
 const bodyParser = require('body-parser');
 const Redis = require('redis');
 const { createHash } = require('node:crypto');
-import { createHash } from 'node:crypto';
 
 const app=express();
 
@@ -11,9 +13,16 @@ const port = 3000;
 
 app.use(bodyParser.json()); //allow JSON (Javascript Object Notation) requests
 
-app.listen(port, ()=> {
-    console.log("Listening on port: " + port);
-});
+//app.listen(port, ()=> {
+   // console.log("Listening on port: " + port);
+//});
+
+https.createServer({
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert')
+  }, app).listen(3000, () => {
+    console.log('Listening...')
+  })
 
 app.get('/',(req,res)=>{
     // res.redirect(301,'https://google.com');
