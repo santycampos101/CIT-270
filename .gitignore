@@ -3,3 +3,5 @@ node_modules
 server.cert
 server.key
 *.pem
+keys/
+package-lock.json
