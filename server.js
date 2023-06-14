@@ -23,11 +23,9 @@ https.createServer({
     // key: fs.redFileSync('server.key'),
     // cert: fs.readFileSync('server.cert')
     key: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/privkey1.pem'), //This is a private key
-
     cert: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/cert1.pem'), //This is a signed certificate
-
-    chain: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/fullchain1.pem') //This is the certificate chain
-  }, app).listen(port, () => {
+    ca: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/chain1.pem') //This is the certificate chain
+  }, app).listen(443, () => {
     redisClient.connect(); //  <------- ADD THIS
     console.log('Listening...')
   })
