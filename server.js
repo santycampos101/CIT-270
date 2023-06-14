@@ -11,7 +11,7 @@ const app=express();
 
 const port = 443;
 
-const redisClient = Redis.createClient({url:'redis://127.0.0;1:6379'});
+const redisClient = Redis.createClient({url:'redis://127.0.0.1:6379'});
 
 app.use(bodyParser.json()); //allow JSON (Javascript Object Notation) requests
 
