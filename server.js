@@ -11,7 +11,7 @@ const { createHash } = require('node:crypto');
 
 const app=express();
 
-const port = 3000;
+const port = 443;
 
 app.use(bodyParser.json()); //allow JSON (Javascript Object Notation) requests
 
@@ -27,7 +27,7 @@ https.createServer({
     cert: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/cert1.pem'), //This is a signed certificate
 
     chain: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/fullchain1.pem') //This is the certificate chain
-  }, app).listen(3000, () => {
+  }, app).listen(port, () => {
     redisClient.connect(); //  <------- ADD THIS
     console.log('Listening...')
   })
