@@ -4,8 +4,6 @@ WORKDIR /usr/app
 
 COPY package.json /usr/app
 
-
-
 COPY server.js /usr/app
 
 # installs the current packages
