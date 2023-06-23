@@ -9,7 +9,7 @@ const { createHash } = require('node:crypto');
 
 const app=express();
 
-const port = 443;
+const port = ;
 
 const redisClient = Redis.createClient({url:'redis://127.0.0.1:6379'});
 
@@ -19,16 +19,21 @@ app.use(bodyParser.json()); //allow JSON (Javascript Object Notation) requests
    // console.log("Listening on port: " + port);
 //});
 
-https.createServer({
-    // key: fs.redFileSync('server.key'),
-    // cert: fs.readFileSync('server.cert')
-    key: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/privkey1.pem'), //This is a private key
-    cert: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/cert1.pem'), //This is a signed certificate
-    ca: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/chain1.pem') //This is the certificate chain
-  }, app).listen(443, () => {
-    redisClient.connect(); //  <------- ADD THIS
-    console.log('Listening...')
-  })
+app.listen(port, () => {
+    redisClient.connect();
+    console.log("Listening...");
+});
+
+// https.createServer({
+//     // key: fs.redFileSync('server.key'),
+//     // cert: fs.readFileSync('server.cert')
+//     key: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/privkey1.pem'), //This is a private key
+//     cert: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/cert1.pem'), //This is a signed certificate
+//     ca: fs.readFileSync('/etc/letsencrypt/archive/santiagocampos.cit270.com/chain1.pem') //This is the certificate chain
+//   }, app).listen(443, () => {
+//     redisClient.connect(); //  <------- ADD THIS
+//     console.log('Listening...')
+//   })
 
 app.get('/',(req,res)=>{
     // res.redirect(301,'https://google.com');
