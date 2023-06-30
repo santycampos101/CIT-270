@@ -61,7 +61,7 @@ metadata:
   name: stedi-santiago-certificate2
 spec:
   domains:
-    - santiagocampos.cit270.com.  # this needs to be your domain name from DNS
+    - santiagocampos.cit270.com  # this needs to be your domain name from DNS
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
