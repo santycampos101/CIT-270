@@ -71,7 +71,7 @@ metadata:
   # Use this command to find the address name: gcloud compute addresses list 
     kubernetes.io/ingress.global-static-ip-name: cit270santiago
   # needs to match the name of the ManagedCertificate (line 75)
-    networking.gke.io/managed-certificates: stedi-santiago-certificate
+    networking.gke.io/managed-certificates: stedi-santiago-certificate2
 spec:
   rules:
   - http:
