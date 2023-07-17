@@ -11,7 +11,7 @@ const app=express();
 
 const port = 3000;
 
-const redisClient = Redis.createClient({url:'redis://default:redis-stedi-santiago:6379'});
+const redisClient = Redis.createClient({url:'redis://redis-stedi-santiago:6379'});
 
 app.use(bodyParser.json()); //allow JSON (Javascript Object Notation) requests
 
